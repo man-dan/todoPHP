@@ -146,21 +146,23 @@ footer #rights{
 	border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-radius: 3px;
+
 }
 .mar{
 	margin-left:4%;
 	font-size:20px;
+
 }
 #ff {
 	float:left;
-	margin-left:80%;
+	margin-left:87%;
 	margin-top: -3.9%;
 	width:19px;
 }
 #df {
 	float:left;
-	margin-left:85%;
-	margin-top: -4.3%;
+	margin-left:92%;
+	margin-top: -4%;
 	width:19px;
 }
 #taskname{
@@ -177,5 +179,45 @@ footer #rights{
 }
 #ftaa{
     border-top: 2px solid black;
+
     padding-top: 10px;
+
+}
+#ddf a{
+    color: lightslategrey;
+}
+#dff a{
+    color: lightslategrey;
+}
+#dff a:hover{
+    color: #ff0000;
+}
+#ddf a:hover{
+    color:#ff0000;
+}
+#ddf{
+    float:left;
+    margin-left:92%;
+    width:19px;
+    margin-top:-4%;
+
+
+}
+#dff{
+    float:left;
+    margin-left:87%;
+    margin-top: -3.8%;
+    width:19px;
+}
+#btnflg{
+    border-radius: 5px;
+    width:100px;
+    height: 30px;
+}
+#mss{
+    padding-bottom: 2px;
+
+}
+#tname{
+    width:300px;
 }

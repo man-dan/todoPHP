@@ -27,8 +27,16 @@
 				<input type='hidden' name='idd'  id='idds' value=''/><br>", $rows["id"]
 				,$rows["id"],$rows["title"],$rows["id"],$rows["id"],$rows["id"],$rows["id"],$rows["id"],$rows["id"],$rows["id"],$rows["id"]);
 				$tasks = Db::loadTasks($rows["id"]);
-				if(!empty($tasks))foreach ($tasks as $value) echo "<div id='task'><div  class='mar'>{$value}</div></div>";
-				printf("<div id='dd'></div></div><br>");
+				if(!empty($tasks)){
+                    foreach ($tasks as $i=>$value){
+                        printf("<div id='task' class='t%s' ><div  class='mar' id='et%s' >{$value}</div><div  class='mar' id='t_{$i}'></div>
+                            <div id='dff'><a href='edit%s' class='ed_t' id='%s'><i class='fa fa-pencil-square-o  ' aria-hidden='true'></i></a>
+                            </div><div id='ddf'><a href='delete%s' class='delt' id='%s'><i class='fa fa-trash-o ' aria-hidden='true'></i></a></div>
+                            <input type='hidden' name='t_n' id='t_n'/>
+                            </div>",$i,$i,$i,$i,$i,$i);
+                    }
+                }
+                printf("<div id='dd'></div></div><br>");
 			}
 			Db::con()->close();
 		}
@@ -37,7 +45,7 @@
 			$arr = array();
 			$res = Db::con()->query("SELECT * FROM `tasks` WHERE list_id = '$id_list' ORDER BY id DESC");
 			while($rows = $res->fetch_assoc()){
-				 $arr[]= $rows["descript"];
+				 $arr[$rows["id"]]= $rows["descript"];
 			}
 			return $arr;
 		}
@@ -55,6 +63,16 @@
         public function  addTask($id_list,$val)
         {
             Db::con()->query("INSERT INTO `tasks`(`descript`,`list_id`) VALUES('$val','$id_list')");
+            Db::con()->close();
+        }
+        public function delTask($id_tsk)
+        {
+            Db::con()->query("DELETE FROM `tasks` WHERE id = '$id_tsk'");
+            Db::con()->close();
+        }
+        public function updateTask($task_nam,$id)
+        {
+            Db::con()->query("UPDATE `tasks` SET `descript`= '$task_nam' WHERE id = '$id'");
             Db::con()->close();
         }
 	}
