@@ -1,4 +1,4 @@
-<? 
+<?php
 	class Db{
 		private function con()
 		{
@@ -6,14 +6,23 @@
 			$mysql->query("SET NAMES 'utf8'");
 			return $mysql;
 		}
-		public function addList()
-		{	
-			Db::con()->query("INSERT INTO `list`(`title`,`user_id`) VALUES('New List','1')");
+		public function addList($email)
+		{
+            $id = Db::usId($email);
+			Db::con()->query("INSERT INTO `list`(`title`,`user_id`) VALUES('New List','$id')");
 			Db::con()->close();
 		}
-		public function loadLists()
-		{	
-			$res = Db::con()->query("SELECT * FROM `list` WHERE user_id = '1' ORDER BY id DESC");
+        private function usId($email)
+        {
+            $id = Db::con()->query("SELECT id FROM `users` WHERE email = '$email'");
+            $row = mysqli_fetch_row($id);
+            return $row[0];
+
+        }
+		public function loadLists($email)
+		{
+            $id = Db::usId($email);
+			$res = Db::con()->query("SELECT * FROM `list` WHERE user_id = '$id' ORDER BY id DESC");
 			while($rows = $res->fetch_assoc()){
 				printf("<div id='article' class='%s'><br><p><div  class='mar' id='list%s'>%s </div>
 				<div class='mar' id='form%s'></div><div id='ff'><a href='%s' class='edit' id='%s'><i class='fa fa-pencil-square-o  fa-lg' aria-hidden='true'></i></a></div>
@@ -75,9 +84,32 @@
             Db::con()->query("UPDATE `tasks` SET `descript`= '$task_nam' WHERE id = '$id'");
             Db::con()->close();
         }
+        public function authUser($email,$pass){
+            $res = Db::con()->query("SELECT *	FROM `users` WHERE `email` = '$email'");
+            $res = $res->fetch_assoc();
+            if($res["email"]==$email && $res["pass"]==$pass){
+                $_SESSION["email"] = $email;
+            }
+            else{
+                echo "<div id='er_em'>Неверный логин или пароль!</div>";
+            }
+            Db::con()->close();
+
+        }
+        public function regUser($email,$pass){
+            $res = Db::con()->query("SELECT `email` FROM `users` WHERE `email`= '$email'");
+            if(($res->num_rows)>0){
+                echo "<div id='er_m'>Уже зарегистрированы!</div>";
+            }
+            else{
+                Db::con()->query("INSERT INTO `users`(`email`,`pass`) VALUES('$email','$pass')");
+                $_SESSION["email"]=$email;
+            }
+            Db::con()->close();
+        }
 	}
 	
 	$db = new Db;
 	
-	
 ?>
+

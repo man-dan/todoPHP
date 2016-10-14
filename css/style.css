@@ -115,20 +115,14 @@ footer{
     width: 98%;
     float: left;
     padding: 1%;
-    text-align: center;
-
-
 }
-footer{
-    margin-top:10px;
-    width: 98%;
-    float: left;
-    padding: 1%;
-    text-align: center;
-}
+
 footer #rights{
     margin-right: 10%;
 	color:white;
+    position: relative ;
+    margin-left:39%;
+
 }
 #regg{
 	float:left;
@@ -213,6 +207,7 @@ footer #rights{
     border-radius: 5px;
     width:100px;
     height: 30px;
+    margin-right: 10%;
 }
 #mss{
     padding-bottom: 2px;
@@ -220,4 +215,53 @@ footer #rights{
 }
 #tname{
     width:300px;
+}
+#er_em{
+    color: #fb5b53;
+    float: left;
+    margin-left:39.5%;
+
+}
+#reg{
+
+    float:left;
+    margin-left: 39%;
+    border:2px solid black;
+    border-radius: 7px;
+    text-align: center;
+    background-image:url('img/lst.jpg');
+}
+#bt{
+    color: white;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 50px;
+    margin-left: 20%;
+}
+#in{
+    border-radius: 2px;
+    border:1px solid black;
+    height:20px;
+
+}
+#m{
+    margin-left: 10px;
+}
+#reg_link{
+    padding-bottom: 10px;
+}
+#er{
+    margin-left:40%;
+    color: #fb5b53;
+}
+#syc{
+    color: #7bcf59;
+    font-size:18px;
+    text-align:left;
+    margin-top:1%;
+    margin-left:37%;
+}
+#er_m{
+    margin-left:41%;
+    color: #fb5b53;
 }

@@ -1,16 +1,17 @@
 $(document).ready(function()
 {
     $('#btnflg').click(function(){
+       var mail = $("#maill").val();
         $.ajax({
+            type: "POST",
+            data:{em: mail},
             url: "addlst.php",
             success: function(html){
-                $('#rl').load("load_lists.php");
+                $('#rl').html(html);
             }
         });
         return false;
     });
-
-
 
     $('#rl').on('click','.edit',function(){
         $("#list"+this.id).hide();
@@ -19,7 +20,6 @@ $(document).ready(function()
         $('.ids').val(this.id);
         return false;
     });
-
 
     $(document).mouseup(function(e){
        var id = $("#form"+$('.ids').val());
@@ -63,18 +63,19 @@ $(document).ready(function()
         });
         return false;
     });
+
     $('#rl').on('click','.adtsk',function(){
         var tval = $(".tsk"+this.id).val();
+        var mail = $("#maill").val();
         var idd = this.id;
         if(tval){
             $.ajax({
                 type: "POST",
                 url: "ad_tsk.php",
-                data: {id: idd, vval: tval },
-                success: function() {
-                    $('#rl').load("load_lists.php");
+                data: {id: idd, vval: tval, em: mail },
+                success: function(html) {
+                    $('#rl').html(html);
                 }
-
             });
         }
         return false;
@@ -129,9 +130,5 @@ $(document).ready(function()
             });
         }
     });
-
-
-
-
 
 });
