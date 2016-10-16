@@ -16,7 +16,7 @@
  <label>Email </label><br>
 <input type="email" name="mail" id='in' placeholder="Enter your email" required/><br>
  <label>Password</label><br>
-<input type="password" name="pass1" id='in' placeholder="Enter your password" required/><br><br>
+<input type="password" name="pass1" id='in' placeholder="Enter your password" required minlength='7'/><br><br>
 <div id="bt"><input type="submit" name="reg" value="Log in" class="btn btn-success"  id="btnflg" /></div>
     <div id="reg_link"><a href="reg.php" >Не зарегистрированы?</a></div>
 </form>

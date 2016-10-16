@@ -34,7 +34,7 @@
 				<br>
 	            <div id='ftaa'>
 	            <form action='index.php' method='post' >
-	            <input type='text' name='tasktname' id='taskname' class='tsk%s' placeholder='Enter name of task'  />
+	            <input type='text' name='tasktname' id='taskname' class='tsk%s' placeholder='Enter name of task'  maxlength='30' />
 	            <input type='button'  id='%s' class='adtsk' value='AddTask'/></form></div>
 				</p><input type='hidden' name='idd' class='ids' id='idd' value=''/>
 				<input type='hidden' name='idd'  id='idds' value=''/><br>", $rows["id"]
