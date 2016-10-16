@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bdec520-2816-46aa-b281-8c124942478c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auth.php" afterPath="$PROJECT_DIR$/auth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bd.php" afterPath="$PROJECT_DIR$/bd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form.php" afterPath="$PROJECT_DIR$/form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form_t.php" afterPath="$PROJECT_DIR$/form_t.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reg.php" afterPath="$PROJECT_DIR$/reg.php" />
     </list>
     <ignored path="notes.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,7 +56,7 @@
       <file leaf-file-name="bd.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="128" selection-start="1806" selection-end="1820" vertical-scroll-proportion="-13.076923" vertical-offset="272" max-vertical-offset="2295">
+            <state line="32" column="58" selection-start="1525" selection-end="1525" vertical-scroll-proportion="-10.461538" vertical-offset="272" max-vertical-offset="2295">
               <folding>
                 <marker date="1476612120889" expanded="true" signature="433:495" placeholder="INSERT INTO ..." />
                 <marker date="1476612120889" expanded="true" signature="531:589" placeholder="INSERT INTO ..." />
@@ -97,19 +94,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="form.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="110" selection-start="171" selection-end="185" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
+            <state line="6" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.18478261" vertical-offset="0" max-vertical-offset="552">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_t.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="71" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_t.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form_t.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="104" selection-start="164" selection-end="179" vertical-scroll-proportion="0.061594203" vertical-offset="0" max-vertical-offset="552">
+            <state line="2" column="104" selection-start="164" selection-end="179" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
               <folding />
             </state>
           </provider>
@@ -138,11 +144,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/form.php" />
         <option value="$PROJECT_DIR$/form_t.php" />
         <option value="$PROJECT_DIR$/bd.php" />
         <option value="$PROJECT_DIR$/auth.php" />
         <option value="$PROJECT_DIR$/reg.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/form.php" />
       </list>
     </option>
   </component>
@@ -476,9 +483,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/reg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="106" selection-start="1030" selection-end="1030" vertical-scroll-proportion="-9.461538" vertical-offset="247" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="100" selection-start="620" selection-end="634" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_t.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="104" selection-start="164" selection-end="179" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="128" selection-start="1806" selection-end="1820" vertical-scroll-proportion="-13.076923" vertical-offset="272" max-vertical-offset="2295">
+        <state line="32" column="58" selection-start="1525" selection-end="1525" vertical-scroll-proportion="-10.461538" vertical-offset="272" max-vertical-offset="2295">
           <folding>
             <marker date="1476612120889" expanded="true" signature="433:495" placeholder="INSERT INTO ..." />
             <marker date="1476612120889" expanded="true" signature="531:589" placeholder="INSERT INTO ..." />
@@ -515,30 +543,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth.php">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="100" selection-start="620" selection-end="634" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="106" selection-start="1030" selection-end="1030" vertical-scroll-proportion="-9.461538" vertical-offset="247" max-vertical-offset="799">
+        <state line="1" column="71" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="110" selection-start="171" selection-end="185" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_t.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="104" selection-start="164" selection-end="179" vertical-scroll-proportion="0.061594203" vertical-offset="0" max-vertical-offset="552">
+        <state line="6" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.18478261" vertical-offset="0" max-vertical-offset="552">
           <folding />
         </state>
       </provider>
