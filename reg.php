@@ -17,7 +17,7 @@
 ?>
 
 <? if($_SESSION["email"]):{ echo "<div id='syc'>Вы были успешно зарегистрированы!</div>";
-    //echo "<script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
+    echo "<script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
 } ?>
 <? else:?>
 <div id="reg">
