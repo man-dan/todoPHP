@@ -2,28 +2,32 @@
 	class Db{
 		private function con()
 		{
-			$mysql= new mysqli("localhost","root","","notes");
-			$mysql->query("SET NAMES 'utf8'");
-			return $mysql;
+            $pgcon = pg_connect("host=localhost port=5432 dbname=notes user=man-dan@mail.ru password=mandan1997");
+			//$mysql= new mysqli("localhost","root","","notes");
+			//$mysql->query("SET NAMES 'utf8'");
+			return $pgcon;
 		}
 		public function addList($email)
 		{
             $id = Db::usId($email);
-			Db::con()->query("INSERT INTO `list`(`title`,`user_id`) VALUES('New List','$id')");
-			Db::con()->close();
+			//Db::con()->query("INSERT INTO `list`(`title`,`user_id`) VALUES('New List','$id')");
+            pg_query(Db::con(),"INSERT INTO list (title, user_id) VALUES('New List','$id')");
+			pg_close(Db::con());
 		}
         private function usId($email)
         {
-            $id = Db::con()->query("SELECT id FROM `users` WHERE email = '$email'");
-            $row = mysqli_fetch_row($id);
+            //$id = Db::con()->query("SELECT id FROM `users` WHERE email = '$email'");
+            $id = pg_query(Db::con(), "SELECT id FROM users WHERE  email = '$email'");
+            $row = pg_fetch_row($id);
             return $row[0];
 
         }
 		public function loadLists($email)
 		{
             $id = Db::usId($email);
-			$res = Db::con()->query("SELECT * FROM `list` WHERE user_id = '$id' ORDER BY id DESC");
-			while($rows = $res->fetch_assoc()){
+			//$res = Db::con()->query("SELECT * FROM `list` WHERE user_id = '$id' ORDER BY id DESC");
+            $res = pg_query(Db::con(), "SELECT * FROM list  WHERE user_id = '$id' ORDER BY id DESC");
+			while($rows = pg_fetch_assoc($res)){
 				printf("<div id='article' class='%s'><br><p><div  class='mar' id='list%s'>%s </div>
 				<div class='mar' id='form%s'></div><div id='ff'><a href='%s' class='edit' id='%s'><i class='fa fa-pencil-square-o  fa-lg' aria-hidden='true'></i></a></div>
 				<div id='df'><a href='delete%s' class='delete' id='%s'><i class='fa fa-trash-o fa-lg' aria-hidden='true'></i></a></div>
@@ -47,65 +51,75 @@
                 }
                 printf("<div id='dd'></div></div><br>");
 			}
-			Db::con()->close();
+			pg_close(Db::con());
 		}
 		public function loadTasks($id_list)
 		{	
 			$arr = array();
-			$res = Db::con()->query("SELECT * FROM `tasks` WHERE list_id = '$id_list' ORDER BY id DESC");
-			while($rows = $res->fetch_assoc()){
+			//$res = Db::con()->query("SELECT * FROM `tasks` WHERE list_id = '$id_list' ORDER BY id DESC");
+            $res = pg_query(Db::con(), "SELECT * FROM tasks WHERE list_id = '$id_list' ORDER BY id DESC");
+			while($rows = pg_fetch_assoc($res)){
 				 $arr[$rows["id"]]= $rows["descript"];
 			}
 			return $arr;
 		}
 		public function updateList($name_list,$id)
 		{
-			Db::con()->query("UPDATE `list` SET `title`= '$name_list' WHERE id = '$id'");
-			Db::con()->close();
+			//Db::con()->query("UPDATE `list` SET `title`= '$name_list' WHERE id = '$id'");
+            pg_query(Db::con(), "UPDATE list SET title= '$name_list' WHERE id = '$id'");
+            pg_close(Db::con());
 		}
         public function delList($id)
         {
-            Db::con()->query("DELETE FROM `list` WHERE id = '$id'");
-            Db::con()->query("DELETE FROM `tasks` WHERE list_id = '$id'");
-            Db::con()->close();
+            //Db::con()->query("DELETE FROM `list` WHERE id = '$id'");
+            //Db::con()->query("DELETE FROM `tasks` WHERE list_id = '$id'");
+            pg_query(Db::con(),"DELETE FROM list WHERE id = '$id'");
+            pg_query(Db::con(),"DELETE FROM tasks WHERE list_id = '$id'");
+            pg_close(Db::con());
         }
         public function  addTask($id_list,$val)
         {
-            Db::con()->query("INSERT INTO `tasks`(`descript`,`list_id`) VALUES('$val','$id_list')");
-            Db::con()->close();
+            //Db::con()->query("INSERT INTO `tasks`(`descript`,`list_id`) VALUES('$val','$id_list')");
+            pg_query(Db::con(), "INSERT INTO tasks(descript, list_id) VALUES('$val','$id_list')");
+            pg_close(Db::con());
         }
         public function delTask($id_tsk)
         {
-            Db::con()->query("DELETE FROM `tasks` WHERE id = '$id_tsk'");
-            Db::con()->close();
+            //Db::con()->query("DELETE FROM `tasks` WHERE id = '$id_tsk'");
+            pg_query(Db::con(), "DELETE FROM tasks WHERE id = '$id_tsk'");
+            pg_close(Db::con());
         }
         public function updateTask($task_nam,$id)
         {
-            Db::con()->query("UPDATE `tasks` SET `descript`= '$task_nam' WHERE id = '$id'");
-            Db::con()->close();
+            //Db::con()->query("UPDATE `tasks` SET `descript`= '$task_nam' WHERE id = '$id'");
+            pg_query(Db::con(), "UPDATE tasks SET descript = '$task_nam' WHERE id = '$id'");
+            pg_close(Db::con());
         }
         public function authUser($email,$pass){
-            $res = Db::con()->query("SELECT *	FROM `users` WHERE `email` = '$email'");
-            $res = $res->fetch_assoc();
+            //$res = Db::con()->query("SELECT *	FROM `users` WHERE `email` = '$email'");
+            //$res = $res->fetch_assoc();
+            $con = pg_query(Db::con(), "SELECT * FROM users WHERE  email = '$email'");
+            $res = pg_fetch_assoc($con);
             if($res["email"]==$email && $res["pass"]==$pass){
                 $_SESSION["email"] = $email;
             }
             else{
                 echo "<div id='er_em'>Неверный логин или пароль!</div>";
             }
-            Db::con()->close();
+            pg_close(Db::con());
 
         }
         public function regUser($email,$pass){
-            $res = Db::con()->query("SELECT `email` FROM `users` WHERE `email`= '$email'");
-            if(($res->num_rows)>0){
+            //$res = Db::con()->query("SELECT `email` FROM `users` WHERE `email`= '$email'");
+            $res = pg_query(Db::con(), "SELECT email FROM users WHERE  email = '$email'");
+            if(pg_num_rows($res)>0){
                 echo "<div id='er_m'>Уже зарегистрированы!</div>";
             }
             else{
-                Db::con()->query("INSERT INTO `users`(`email`,`pass`) VALUES('$email','$pass')");
+                pg_query(Db::con(),"INSERT INTO users (email,pass) VALUES('$email','$pass')");
                 $_SESSION["email"]=$email;
             }
-            Db::con()->close();
+            pg_close(Db::con());
         }
 	}
 	
