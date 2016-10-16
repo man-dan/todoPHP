@@ -2,7 +2,7 @@
 	class Db{
 		private function con()
 		{
-            $pgcon = pg_connect("host=localhost port=5432 dbname=notes user=man-dan@mail.ru password=mandan1997");
+            $pgcon = pg_connect("host=ec2-54-243-249-137.compute-1.amazonaws.com port=5432 dbname=dasb78s90ll0pq user=ygevkqscognebn password=mandan1997");
 			//$mysql= new mysqli("localhost","root","","notes");
 			//$mysql->query("SET NAMES 'utf8'");
 			return $pgcon;
